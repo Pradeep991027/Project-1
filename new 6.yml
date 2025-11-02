@@ -1,0 +1,32 @@
+- name: Launch EC2
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  collections:
+    - amazon.aws
+
+  tasks:
+
+    - name: Create security group
+      amazon.aws.ec2_group:
+        name: my-hardcoded-sg
+        description: Security group created via Ansible without vars
+        region: ap-south-1
+        rules:
+          - proto: tcp
+            ports: [22]
+            cidr_ip: 0.0.0.0/0
+        state: present
+
+    - name: testec2
+      amazon.aws.ec2_instance:
+        name: my-hardcoded-ec2
+        key_name: Linux1
+        instance_type: t3.micro
+        image_id: ami-07f07a6e1060cd2a8
+        wait: true
+        count: 1
+        region: ap-south-1
+        security_groups: [my-hardcoded-sg]  
+        state: running
+      register: ec2_instance
