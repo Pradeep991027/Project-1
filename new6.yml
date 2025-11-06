@@ -20,7 +20,7 @@
 
     - name: testec2
       amazon.aws.ec2_instance:
-        name: my-hardcoded-ec2
+        name: test-ec2
         key_name: Linux1
         instance_type: t3.micro
         image_id: ami-07f07a6e1060cd2a8
