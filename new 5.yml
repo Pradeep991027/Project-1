@@ -21,7 +21,7 @@
 
     - name: EC2 test
       amazon.aws.ec2_instance:
-        name: test-instance
+        name: test1-instance
         key_name: Linux1
         instance_type: t3.micro
         image_id: ami-07f07a6e1060cd2a8  # Update with a valid AMI ID for your region
