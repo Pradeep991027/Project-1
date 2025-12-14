@@ -1,5 +1,5 @@
 ---
-- name: EC2-test
+- name: EC2
   hosts: localhost
   gather_facts: no
   vars:
