@@ -1,5 +1,5 @@
 ---
-- name: EC2
+- name: EC21
   hosts: localhost
   gather_facts: no
   vars:
