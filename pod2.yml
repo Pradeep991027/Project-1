@@ -1,18 +1,21 @@
-------
-- name: create
+---
+- name: Create a Pod in Kubernetes
+  hosts: localhost
+  connection: local
   gather_facts: no
   collections:
     - community.kubernetes
- 
+
   tasks:
-    - name: crate
+    - name: Create a Pod in Kubernetes
       k8s:
         state: present
+        kubeconfig: ~/.kube/config
         definition:
           apiVersion: v1
-          kind: pod
+          kind: Pod
           metadata:
-            name: pod2
+            name: my-pod
             namespace: default
           spec:
             containers:
