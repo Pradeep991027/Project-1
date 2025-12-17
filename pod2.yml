@@ -5,7 +5,7 @@
     - community.kubernetes
  
   tasks:
-    - name: Create a simple NGINX Pod
+    - name: crate
       k8s:
         state: present
         definition:
