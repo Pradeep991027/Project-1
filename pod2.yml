@@ -1,21 +1,20 @@
 ---
 - name: Create a Pod in Kubernetes
-  hosts: localhost
-  connection: local
+  hosts: all
   gather_facts: no
   collections:
     - community.kubernetes
 
   tasks:
-    - name: Create a Pod in Kubernetes
+    - name: Create a simple NGINX Pod
       k8s:
         state: present
-        kubeconfig: ~/.kube/config
+        kubeconfig: /home/ubuntu/.kube/config
         definition:
           apiVersion: v1
           kind: Pod
           metadata:
-            name: my-pod
+            name: anjali-pod
             namespace: default
           spec:
             containers:
